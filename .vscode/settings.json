@@ -1,0 +1,35 @@
+{
+    "go.lintOnSave": "off",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "[go]": {
+      "editor.formatOnSave": true,
+      "editor.wordWrap": "wordWrapColumn",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+    },
+    "[go.mod]": {
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+
+    },
+    "editor.find.addExtraSpaceOnTop": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+    "editor.rulers": [100],
+    "editor.minimap.enabled": true,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 14,
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "editor.fontWeight": "normal",
+    "editor.smoothScrolling": true,
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "go.autocompleteUnimportedPackages": true,
+    "go.docsTool": "gogetdoc"
+  }
