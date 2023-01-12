@@ -5,14 +5,24 @@ pipeline{
         }
     }
     tools {
-        go '1.19.5'
+        go 'go1.19.5'
     }
 
     stages {
         stage('Build') {
             steps {
+            script {
+            def date = new Date()
+            def buildNumber = date.format("yyyyMMddHHmmss")
+            def exampleJSON [
+                name: 'example',
+                version: '1.0.0',
+            ]
+            def exampleJSONString = exampleJSON.toString()
+            writeFile file: 'example.json', text: exampleJSONString
+            }
                 echo("Start Build ")
-                sh 'go build -o main .'
+                sh "go build -ldflags '-X main.buildNumber=${buildNumber}' -o main"
                 echo("Finish Build")
             }
         }
