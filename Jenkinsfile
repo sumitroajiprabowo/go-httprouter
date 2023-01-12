@@ -1,7 +1,7 @@
 pipeline{
     agent {
         node {
-            label 'linux && golang'
+            label 'golang'
         }
     }
 
