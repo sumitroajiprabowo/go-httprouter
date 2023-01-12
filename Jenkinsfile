@@ -4,6 +4,9 @@ pipeline{
             label 'golang'
         }
     }
+    tools {
+        go '1.9.5'
+    }
 
     stages {
         stage('Build') {
