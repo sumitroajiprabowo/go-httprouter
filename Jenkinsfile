@@ -18,6 +18,7 @@ pipeline{
         stage('Test') {
             steps {
                 echo("Hello Test 1")
+                sleep 10
                 echo("Hello Test 2")
             }
         }
@@ -25,6 +26,8 @@ pipeline{
         stage('Deploy') {
             steps {
                 echo("Hello Deploy")
+                sleep 10
+                echo("Hello Deploy 2")
             }
         }
     }
