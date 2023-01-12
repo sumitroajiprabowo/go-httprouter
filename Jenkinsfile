@@ -6,9 +6,21 @@ pipeline{
     }
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo("Hello Pipeline From Jenkinsfile")
+                echo("Hello Build")
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo("Hello Test")
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo("Hello Deploy")
             }
         }
     }
