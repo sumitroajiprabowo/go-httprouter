@@ -14,7 +14,7 @@ pipeline{
             script {
             def date = new Date()
             def buildNumber = date.format("yyyyMMddHHmmss")
-            def exampleJSON [
+            def exampleJSON = [
                 name: 'example',
                 version: '1.0.0',
             ]
