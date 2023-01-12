@@ -12,8 +12,6 @@ pipeline{
         stage('Build') {
             steps {
             script {
-            def date = new Date()
-            def buildNumber = date.format("yyyyMMddHHmmss")
             def exampleJSON = [
                 name: 'example',
                 version: '1.0.0',
@@ -22,7 +20,7 @@ pipeline{
             writeFile file: 'example.json', text: exampleJSONString
             }
                 echo("Start Build ")
-                sh "go build -ldflags '-X main.buildNumber=${buildNumber}' -o main"
+                sh "go build -o main"
                 echo("Finish Build")
             }
         }
