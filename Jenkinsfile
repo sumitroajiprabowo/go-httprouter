@@ -9,6 +9,7 @@ pipeline{
         stage('Build') {
             steps {
                 echo("Hello Build 1")
+                sleep 10
                 echo("Hello Build 2")
                 echo("Hello Build 3")
             }
