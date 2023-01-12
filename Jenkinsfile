@@ -9,7 +9,7 @@ pipeline{
         stage('Build') {
             steps {
                 echo("Start Build ")
-                go build -o main .
+                sh("go build -o main .")
                 echo("Finish Build")
             }
         }
