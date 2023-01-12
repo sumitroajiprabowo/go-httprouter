@@ -1,15 +1,16 @@
 pipeline{
-    agent {
-        node {
-            label 'golang'
-        }
-    }
+    agent none
     tools {
         go 'go1.19.5'
     }
 
     stages {
         stage('Build') {
+            agent {
+                node {
+                    label 'golang'
+                }
+            }
             steps {
             script {
             def exampleJSON = [
@@ -26,6 +27,11 @@ pipeline{
         }
 
         stage('Test') {
+            agent {
+                node {
+                        label 'golang'
+                }
+            }
             steps {
                 echo("Hello Test 1")
                 sh 'go test -v ./...'
@@ -34,6 +40,11 @@ pipeline{
         }
 
         stage('Deploy') {
+            agent {
+                node {
+                        label 'golang'
+                }
+            }
             steps {
                 echo("Hello Deploy")
             }
