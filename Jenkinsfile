@@ -5,7 +5,7 @@ pipeline{
         }
     }
     tools {
-        go '1.9.5'
+        go '1.19.5'
     }
 
     stages {
