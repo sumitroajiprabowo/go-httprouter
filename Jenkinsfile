@@ -12,7 +12,7 @@ pipeline{
         stage('Build') {
             steps {
                 echo("Start Build ")
-                sh 'go version'
+                sh 'go build -o main .'
                 echo("Finish Build")
             }
         }
@@ -20,7 +20,7 @@ pipeline{
         stage('Test') {
             steps {
                 echo("Hello Test 1")
-                sleep 10
+                sh 'go test -v ./...'
                 echo("Hello Test 2")
             }
         }
@@ -28,8 +28,6 @@ pipeline{
         stage('Deploy') {
             steps {
                 echo("Hello Deploy")
-                sleep 10
-                echo("Hello Deploy 2")
             }
         }
     }
