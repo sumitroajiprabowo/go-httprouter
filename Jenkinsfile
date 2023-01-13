@@ -3,6 +3,11 @@ pipeline{
     tools {
         go 'go1.19.5'
     }
+    environment {
+        GOPATH = "${env.WORKSPACE}"
+        GO111MODULE = 'on'
+        AUTHOR = 'Sumitro Aji Prabowo'
+    }
 
     stages {
         stage ('Prepare') {
@@ -12,6 +17,7 @@ pipeline{
                 }
             }
             steps {
+                echo ("Author, ${env.AUTHOR}")
                 echo ("Start Job ${env.JOB_NAME}")
                 echo ("Start Build ${env.BUILD_NUMBER}")
                 echo ("Start Branch ${env.BRANCH_NAME}")
