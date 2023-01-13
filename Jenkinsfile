@@ -5,6 +5,7 @@ pipeline{
     }
     environment {
         AUTHOR = 'Sumitro Aji Prabowo'
+        EMAIL = 'bowo@anakdesa.id'
     }
 
     stages {
@@ -16,6 +17,7 @@ pipeline{
             }
             steps {
                 echo ("Author, ${env.AUTHOR}")
+                echo ("Email, ${env.EMAIL}")
                 echo ("Start Job ${env.JOB_NAME}")
                 echo ("Start Build ${env.BUILD_NUMBER}")
                 echo ("Start Branch ${env.BRANCH_NAME}")
