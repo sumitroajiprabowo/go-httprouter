@@ -15,9 +15,14 @@ pipeline{
                     label 'golang'
                 }
             }
+            environment {
+                APP = credentials('dockerhub-sumitroajiprabowo')
+            }
             steps {
                 echo ("Author, ${env.AUTHOR}")
                 echo ("Email, ${env.EMAIL}")
+                echo ("Docker Hub Username, ${env.APP_USR}")
+                echo ("Docker Hub Password, ${env.APP_PSW}")
                 echo ("Start Job ${env.JOB_NAME}")
                 echo ("Start Build ${env.BUILD_NUMBER}")
                 echo ("Start Branch ${env.BRANCH_NAME}")
