@@ -2,6 +2,7 @@ pipeline{
     agent none
     tools {
         go 'go1.19.5'
+        git NONE
     }
 
     stages {
@@ -12,9 +13,9 @@ pipeline{
                 }
             }
             steps {
-                echo 'Start Job $.env.JOB_NAME'
-                echo 'Start Build $.env.BUILD_NUMBER'
-                echo 'Start Branch $.env.BRANCH_NAME'
+                echo 'Start Job ${.env.JOB_NAME}'
+                echo 'Start Build ${.env.BUILD_NUMBER}'
+                echo 'Start Branch ${.env.BRANCH_NAME}'
                 sh 'go version'
             }
         }
