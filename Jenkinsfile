@@ -4,8 +4,6 @@ pipeline{
         go 'go1.19.5'
     }
     environment {
-        GOPATH = "${env.WORKSPACE}"
-        GO111MODULE = 'on'
         AUTHOR = 'Sumitro Aji Prabowo'
     }
 
