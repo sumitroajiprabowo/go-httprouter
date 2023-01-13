@@ -17,10 +17,10 @@ pipeline{
                 }
             }
             steps {
-                echo("Author, ${env.AUTHOR}")
-                echo("Start Job ${env.JOB_NAME}")
-                echo("Start Build ${env.BUILD_NUMBER}")
-                echo("Start Branch ${env.BRANCH_NAME}")
+                echo ("Author, ${env.AUTHOR}")
+                echo ("Start Job ${env.JOB_NAME}")
+                echo ("Start Build ${env.BUILD_NUMBER}")
+                echo ("Start Branch ${env.BRANCH_NAME}")
                 sh 'go version'
             }
         }
