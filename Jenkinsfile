@@ -8,6 +8,12 @@ pipeline{
         EMAIL = 'bowo@anakdesa.id'
     }
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+        disableConcurrentBuilds()
+        timeout(time: 1, unit: 'HOURS')
+    }
+
     stages {
         stage ('Prepare') {
             agent {
@@ -22,7 +28,7 @@ pipeline{
                 echo ("Author, ${env.AUTHOR}")
                 echo ("Email, ${env.EMAIL}")
                 echo ("Docker Hub Username, ${env.APP_USR}")
-                echo ('Docker Hub Password, ${env.APP_PSW}')
+                echo ("Docker Hub Password, ${env.APP_PSW}")
                 echo ("Start Job ${env.JOB_NAME}")
                 echo ("Start Build ${env.BUILD_NUMBER}")
                 echo ("Start Branch ${env.BRANCH_NAME}")
