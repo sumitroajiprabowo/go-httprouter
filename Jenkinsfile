@@ -79,6 +79,14 @@ pipeline{
         }
 
         stage('Deploy') {
+            input {
+                message 'Deploy?'
+                ok 'Yes, we should.'
+                submitter 'sumitroajiprabowo, admin'
+                parameters {
+                    string(name: 'DEPLOY_ENV', defaultValue: 'dev', description: 'Environment to deploy')
+                }
+            }
             agent {
                 node {
                         label 'golang'
