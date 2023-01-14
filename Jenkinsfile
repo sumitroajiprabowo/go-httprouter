@@ -84,7 +84,7 @@ pipeline{
                 ok 'Yes, we should.'
                 submitter 'sumitroajiprabowo, megadata'
                 parameters {
-                    choice(name: 'TARGET ENVIRONMENT', choices: ['DEV', 'STAGING', 'PRODUCTION'], description: 'Choose the target environment')
+                    choice(name: 'TARGET_ENVIRONMENT', choices: ['DEV', 'STAGING', 'PRODUCTION'], description: 'Choose the target environment')
                 }
             }
             agent {
@@ -93,7 +93,7 @@ pipeline{
                 }
             }
             steps {
-                echo("Hello Deploy")
+                echo("Deploy to ${TARGET_ENVIRONMENT}")
             }
         }
     }
