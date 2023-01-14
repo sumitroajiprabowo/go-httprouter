@@ -25,6 +25,34 @@ pipeline{
 
     stages {
 
+        stage ('OS Setup') {
+            matrix {
+                agent any
+                axes {
+                    axis {
+                        name 'OS'
+                        values 'linux', 'windows', 'macos'
+                    }
+                    axis {
+                        name 'ARCH'
+                        values 'amd64', 'arm64'
+                    }
+                }
+                stages {
+                    stage ('Setup') {
+                        agent {
+                            node {
+                                label 'linux'
+                            }
+                        }
+                        steps {
+                            echo "Setup ${OS} ${ARCH}"
+                        }
+                    }
+                }
+            }
+        }
+
         stage ('Prepare') {
             environment {
                 APP = credentials('dockerhub-sumitroajiprabowo')
