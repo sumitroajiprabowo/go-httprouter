@@ -35,7 +35,7 @@ pipeline{
                     }
                     axis {
                         name 'ARCH'
-                        values 'amd64', 'arm64'
+                        values 'amd64', 'x86'
                     }
                 }
                 stages {
