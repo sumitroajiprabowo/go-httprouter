@@ -33,32 +33,17 @@ pipeline{
             environment {
                 APP = credentials('dockerhub-sumitroajiprabowo')
             }
-
-            stages {
-                stage {
-                    stage ('Preparation Go') {
-                        steps {
-                            sh 'go version'
-                        }
-                    }
-                }
-
-                stage {
-                    stage ('Preparation Environment') {
-                        steps {
-                            echo ("Author, ${env.AUTHOR}")
-                            echo ("Email, ${env.EMAIL}")
-                            echo ("Docker Hub Username, ${env.APP_USR}")
-                            echo ("Docker Hub Password, ${env.APP_PSW}")
-                            echo ("Start Job ${env.JOB_NAME}")
-                            echo ("Start Build ${env.BUILD_NUMBER}")
-                            echo ("Start Branch ${env.BRANCH_NAME}")
-                        }
-                    }
-                }
+            steps {
+                echo ("Author, ${env.AUTHOR}")
+                echo ("Email, ${env.EMAIL}")
+                echo ("Docker Hub Username, ${env.APP_USR}")
+                echo ("Docker Hub Password, ${env.APP_PSW}")
+                echo ("Start Job ${env.JOB_NAME}")
+                echo ("Start Build ${env.BUILD_NUMBER}")
+                echo ("Start Branch ${env.BRANCH_NAME}")
+                sh 'go version'
             }
         }
-
         stage('Build') {
             agent {
                 node {
