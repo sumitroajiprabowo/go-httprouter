@@ -9,8 +9,8 @@ pipeline{
     }
 
     triggers {
-        cron('* * * * *')
-        //pollSCM('* * * * *')
+        //cron('* * * * *')
+        pollSCM('* * * * *')
     }
 
     parameters {
