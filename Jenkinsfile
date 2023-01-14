@@ -15,7 +15,7 @@ pipeline{
 
     parameters {
         string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build')
-        string(name: 'DEPLOY', defaultValue: 'false', description: 'Deploy to production')
+        choice(name: 'DEPLOY', choices: ['yes', 'no'], description: 'Deploy to production?')
     }
 
     options {
