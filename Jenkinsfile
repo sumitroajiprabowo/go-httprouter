@@ -26,23 +26,29 @@ pipeline{
     stages {
 
         stage ('Prepare') {
-            agent {
-                node {
-                    label 'golang'
-                }
-            }
             environment {
                 APP = credentials('dockerhub-sumitroajiprabowo')
             }
-            stages {
+            parallel {
                 stage ('Preparation Golang') {
+                    agent {
+                        node {
+                            label 'golang'
+                        }
+                    }
                     steps {
                         sh 'go version'
                         sh 'go env'
+                        sleep 5
                     }
                 }
 
                 stage ('Preparation Environment') {
+                    agent {
+                        node {
+                            label 'golang'
+                        }
+                    }
                     steps {
                         echo ("Author, ${env.AUTHOR}")
                         echo ("Email, ${env.EMAIL}")
@@ -51,7 +57,7 @@ pipeline{
                         echo ("Start Job ${env.JOB_NAME}")
                         echo ("Start Build ${env.BUILD_NUMBER}")
                         echo ("Start Branch ${env.BRANCH_NAME}")
-                        sh 'go version'
+                        sleep 5
                     }
                 }
             }
