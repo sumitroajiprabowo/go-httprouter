@@ -82,9 +82,9 @@ pipeline{
             input {
                 message 'Deploy?'
                 ok 'Yes, we should.'
-                submitter 'sumitroajiprabowo, admin'
+                submitter 'sumitroajiprabowo, megadata'
                 parameters {
-                    string(name: 'DEPLOY_ENV', defaultValue: 'dev', description: 'Environment to deploy')
+                    choice(name: 'TARGET ENVIRONMENT', choices: ['DEV', 'STAGING', 'PRODUCTION'], description: 'Choose the target environment')
                 }
             }
             agent {
