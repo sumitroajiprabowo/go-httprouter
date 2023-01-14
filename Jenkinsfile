@@ -15,10 +15,10 @@ pipeline{
 
     parameters {
         string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build')
+        string(name: 'DEPLOY', defaultValue: 'false', description: 'Deploy to production')
     }
 
     options {
-        buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
         timeout(time: 1, unit: 'HOURS')
     }
@@ -94,6 +94,22 @@ pipeline{
             }
             steps {
                 echo("Deploy to ${TARGET_ENVIRONMENT}")
+            }
+        }
+
+        stage('Release') {
+            when {
+                expression {
+                    return params.DEPLOY;
+                }
+            }
+            agent {
+                node {
+                        label 'golang'
+                }
+            }
+            steps {
+                echo("Release")
             }
         }
     }
