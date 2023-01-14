@@ -8,6 +8,15 @@ pipeline{
         EMAIL = 'bowo@anakdesa.id'
     }
 
+    triggers {
+        cron('* * * * *')
+        //pollSCM('* * * * *')
+    }
+
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build')
+    }
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
