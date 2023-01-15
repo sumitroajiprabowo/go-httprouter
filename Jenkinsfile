@@ -127,7 +127,12 @@ pipeline{
                 }
             }
             steps {
-                echo("Release")
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-sumitroajiprabowo', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                    //sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
+                    //sh 'docker build -t sumitroajiprabowo/jenkins-pipeline-golang:latest .'
+                    //sh 'docker push sumitroajiprabowo/jenkins-pipeline-golang:latest'
+                    sh('echo "Release with -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"')
+                }
             }
         }
     }
